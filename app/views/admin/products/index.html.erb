@@ -1,0 +1,55 @@
+<div class="h-full w-full py-8 px-3 md:px-8 mb-seller-dashboard-cards">
+  <!-- heading section -->
+  <div class='flex flex-1 justify-between'>
+    <!-- page heading -->
+    <div class='text-xl font-semibold'>
+      <h3>Products</h3>
+    </div>
+    <!-- slide over -->
+    <div>
+      <%= link_to new_admin_product_path, class: "py-2 px-3 space-x-2 text-white font-semibold bg-cyan-600 flex items-center rounded-lg" do %>
+        <span>Create Product</span>
+      <% end %>
+    </div>
+  </div>
+  <!-- table section -->
+  <% unless @products.blank? %>
+    <%= turbo_frame_tag "products-table" do %>
+      <div class='my-8 w-full'>
+        <div class='flex flex-col space-y-2 md:space-y-4'>
+          <div class='w-full overflow-hidden'>
+            <div class='w-full overflow-x-auto scrollbar-hide'>
+              <table class="w-full divide-y divide-gray-300 border">
+                <thead class="bg-gray-100 h-auto">
+                  <tr class='text-nowrap'>
+                    <th scope="col" class="py-3.5 pl-4 pr-3 text-left text-base font-semibold text-gray-900 sm:pl-6">
+                      <input type="checkbox" class="accent-cyan-300/25 p-1">
+                    </th>
+                    <th scope="col" class="py-3.5 pl-4 pr-3 text-left text-base font-semibold text-gray-900 sm:pl-6">Name</th>
+                    <th scope="col" class="py-3.5 pl-4 pr-3 text-left text-base font-semibold text-gray-900 sm:pl-6">Price</th>
+                    <th scope="col" class="py-3.5 pl-4 pr-3 text-left text-base font-semibold text-gray-900 sm:pl-6">Quantity In Stock</th>
+                    <th scope="col" class="py-3.5 pl-4 pr-3 text-left text-base font-semibold text-gray-900 sm:pl-6">Actions</th>
+                  </tr>
+                </thead>
+                <%= turbo_frame_tag "products" do %>
+                  <tbody class="divide-y">
+                    <%= render @products %>
+                  </tbody>
+                <% end %>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    <% end%>
+  <% else %>
+    <div class="max-w-lg mx-auto mt-8">
+      <%= link_to new_admin_product_path, class: "relative block w-full border-2 border-gray-300 border-dashed rounded-lg p-12 text-center hover:border-gray-400 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" do %>
+        <svg class="mx-auto h-12 w-12 text-gray-400" xmlns="http://www.w3.org/2000/svg" stroke="currentColor" fill="none" viewBox="0 0 48 48" aria-hidden="true">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 14v20c0 4.418 7.163 8 16 8 1.381 0 2.721-.087 4-.252M8 14c0 4.418 7.163 8 16 8s16-3.582 16-8M8 14c0-4.418 7.163-8 16-8s16 3.582 16 8m0 0v14m0-4c0 4.418-7.163 8-16 8S8 28.418 8 24m32 10v6m0 0v6m0-6h6m-6 0h-6" />
+        </svg>
+        <span class="mt-2 block text-sm font-medium text-gray-900">Create New Product</span>
+      <% end %>
+    </div>
+  <% end %>
+</div>

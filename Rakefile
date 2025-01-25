@@ -4,3 +4,7 @@
 require_relative "config/application"
 
 Rails.application.load_tasks
+
+# Automatically annotate after migrations
+Rake::Task["db:migrate"].enhance(["annotate_models"])
+
