@@ -9,3 +9,6 @@ import { application } from "./application"
 // Lazy load controllers as they appear in the DOM (remember not to preload controllers in import map!)
 // import { lazyLoadControllersFrom } from "@hotwired/stimulus-loading"
 // lazyLoadControllersFrom("controllers", application)
+
+import SlideOverController from "./slide_over_controller"
+application.register("slide-over", SlideOverController)

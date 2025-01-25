@@ -69,6 +69,7 @@
         <!-- main content -->
         <div id='content' class='p-4 rounded-xl bg-gray-100'>
           <%= yield %>
+          <%= turbo_frame_tag "slide-over" %>
         <div>
       </div>
     </div>
