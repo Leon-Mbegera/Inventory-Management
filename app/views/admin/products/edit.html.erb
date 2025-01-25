@@ -1,0 +1,5 @@
+<%= turbo_frame_tag @product do %>
+  <%= slide_over_form_wrapper(title: 'Update Product', subtitle: 'Edit Product Details') do %>
+    <%= render 'form', product: @product %>
+  <% end %>
+<% end %>
