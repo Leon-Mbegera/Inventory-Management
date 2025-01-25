@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   get "service-worker" => "rails/pwa#service_worker", as: :pwa_service_worker
   get "manifest" => "rails/pwa#manifest", as: :pwa_manifest
 
-  scope module: :admin do
+  namespace :admin do
     # Defines the root path route ("/")
     root "dashboard#index"
     resources :products
