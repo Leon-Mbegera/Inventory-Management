@@ -13,5 +13,6 @@ Rails.application.routes.draw do
     # Defines the root path route ("/")
     root "dashboard#index"
     resources :products
+    resources :sales, only: [:new, :create, :index]
   end
 end
