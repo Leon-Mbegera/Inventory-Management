@@ -1,0 +1,35 @@
+<div class="p-6 bg-white rounded-lg w-full h-auto">
+  <div class='grid grid-cols-12 gap-x-4'>
+    <div class='col-span-3'>
+      <div class='w-[200px] h-[200px]'>
+        <%= image_tag @product.image, class: "w-full h-full" %>
+      </div>
+    </div>
+    <div class='col-span-3 space-y-6'>
+      <div>
+        <p class='text-base font-semibold'>Product Name</p>
+        <p><%= @product.name %></p>
+      </div>
+      <div>
+        <p class='text-base font-semibold'>Unit Price</p>
+        <p><%= @product.price %></p>
+      </div>
+    </div>
+    <div class='col-span-3 space-y-6'>
+      <div>
+        <p class='text-base font-semibold'>Quantity In Stock</p>
+        <p><%= @product.quantity %></p>
+      </div>
+      <div>
+        <p class='text-base font-semibold'>Restock Level</p>
+        <p><%= @product.price %></p>
+      </div>
+    </div>
+    <div class='col-span-3'>
+      <div>
+        <p class='text-base font-semibold'>Quantity In Stock</p>
+        <p><%= @product.description %></p>
+      </div>
+    </div>
+  </div>
+</div>
