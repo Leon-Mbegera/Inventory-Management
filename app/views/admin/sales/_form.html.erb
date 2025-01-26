@@ -1,0 +1,33 @@
+<%= form_with model: @sale, url: admin_sales_path, data: { turbo_stream: true, turbo_frame: "_top" }, class: "w-full h-full p-6 flex flex-col justify-between" do |form| %>
+  <div>
+    <div class="flex flex-wrap -mx-3 mb-6 space-y-4">
+      <div class="w-full px-3">
+        <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-first-name">
+          Product
+        </label>
+        <%= form.select :product_id, Product.all.map { |product| [product.name, product.id] }, { prompt: "Choose a product" }, class: "appearance-none block w-full bg-gray-200 text-gray-700 rounded py-3 px-4 mb-3 leading-tight focus:border-purple-600 focus:bg-white", id: "sale_product_id" %>
+      </div>
+      <div class="w-full px-3">
+        <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-password">
+          Quantity
+        </label>
+        <%= form.number_field :quantity, class: "appearance-none block w-full bg-gray-200 text-gray-700 rounded py-3 px-4 mb-3 leading-tight focus:border-purple-600 focus:bg-white", required: true, placeholder:"" %>
+      </div>
+      <div class="w-full px-3">
+        <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-last-name">
+          Unit Price
+        </label>
+        <input type="text" id="sale_unit_price" readonly class="appearance-none block w-full bg-gray-200 text-gray-700 rounded py-3 px-4 mb-3 leading-tight focus:border-purple-600 focus:bg-white" />
+      </div>
+      <div class="w-full px-3">
+        <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-last-name">
+          Total Price
+        </label>
+        <input type="text" id="sale_total_price" readonly class="appearance-none block w-full bg-gray-200 text-gray-700 rounded py-3 px-4 mb-3 leading-tight focus:border-purple-600 focus:bg-white" />
+      </div>
+    </div>
+  </div>
+  <div>
+   <%= form.submit class: "w-full py-2 px-3 space-x-2 text-white font-semibold bg-purple-900 flex items-center rounded-lg hover:cursor-pointer" %>
+  </div>
+<% end %>

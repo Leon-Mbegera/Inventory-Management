@@ -1,0 +1,8 @@
+<%= turbo_frame_tag sale do %>
+  <tr>
+    <td class="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-6"><%= sale.product_name %></td>
+    <td class="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-6"><%= sale.quantity %></td>
+    <td class="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-6"><%= sale.total_cost %></td>
+    <td class="whitespace-nowrap text-wrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-6"><%= sale.date %></td>
+  </tr>
+<% end %>

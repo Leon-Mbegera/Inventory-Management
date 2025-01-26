@@ -1,0 +1,5 @@
+<%= turbo_frame_tag @sale do %>
+  <%= slide_over_form_wrapper(title: 'New Sale', subtitle: 'Make A New Sale') do %>
+    <%= render 'form', sale: @sale %>
+  <% end %>
+<% end %>
