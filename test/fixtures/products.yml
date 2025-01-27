@@ -12,14 +12,22 @@
 #  updated_at      :datetime         not null
 #
 
-one:
-  name: MyString
-  description: MyString
-  price: MyString
-  quantity: 1
+# test/fixtures/products.yml
+product_one:
+  name: "Product One"
+  description: "This is a test product."
+  low_stock_level: 5
+  price: "15.00"
+  quantity: 50
+  created_at: <%= Time.now - 1.day %>
+  updated_at: <%= Time.now %>
 
-two:
-  name: MyString
-  description: MyString
-  price: MyString
-  quantity: 1
+product_two:
+  name: "Product Two"
+  description: "Another test product."
+  low_stock_level: 2
+  price: "25.00"
+  quantity: 30
+  created_at: <%= Time.now - 2.days %>
+  updated_at: <%= Time.now %>
+

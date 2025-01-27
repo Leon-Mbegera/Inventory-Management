@@ -18,12 +18,18 @@
 #  product_id  (product_id => products.id)
 #
 
-one:
-  product: one
-  quantity: 1
-  total_price: 9.99
+# test/fixtures/sales.yml
+sale_one:
+  product: product_one
+  quantity: 3
+  total_price: 45.00
+  created_at: <%= Time.now - 1.hour %>
+  updated_at: <%= Time.now %>
 
-two:
-  product: two
-  quantity: 1
-  total_price: 9.99
+sale_two:
+  product: product_two
+  quantity: 5
+  total_price: 125.00
+  created_at: <%= Time.now - 2.hours %>
+  updated_at: <%= Time.now %>
+
