@@ -34,6 +34,7 @@ class Admin::SalesController < ApplicationController
           ]
         end
       end
+    end
   end
 
   def index

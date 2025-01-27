@@ -23,10 +23,11 @@ class Sale < ApplicationRecord
   validates :quantity, presence: true, numericality: { only_integer: true, greater_than: 0 }
   validate :quantity_greater_than_product_quantity_in_stock
 
-  after_create :reduce_product_quantity, :calculate_total_price
+  before_create :calculate_total_price
+  after_create :reduce_product_quantity
 
   def date
-    created_at.strftime("%a %d-%m-%Y")
+    created_at.strftime("%a %d-%m-%Y at %I:%M%p")
   end
 
   def product_name
@@ -39,7 +40,6 @@ class Sale < ApplicationRecord
     return unless product && quantity
 
     self.total_price = product.price.to_f * quantity
-    self.save
   end
 
   def reduce_product_quantity
