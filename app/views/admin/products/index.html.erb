@@ -7,20 +7,16 @@
     </div>
     <!-- slide over -->
     <div>
-      <%= link_to new_admin_product_path, data: { turbo_frame: "slide-over, #{dom_id(Product.new)}" }, class: "py-2 px-3 space-x-2 text-white font-semibold bg-purple-900 flex items-center rounded-lg" do %>
+      <%= link_to new_admin_product_path, data: { turbo_frame: "slide-over, #{dom_id(Product.new)}" }, class: "py-2 px-3 space-x-2 text-white font-semibold bg-purple-700 flex items-center rounded-lg" do %>
         <span>Create Product</span>
       <% end %>
     </div>
   </div>
-  <div class='flex flex-1 justify-between mt-4 mb-2'>
+  <div class='flex flex-1 justify-between mt-10 mb-2'>
     <!-- filter -->
-    <%
-=begin%>
- <%= render partial: 'filter' %>
-<%
-=end%>
+    <%= render partial: 'filter' %>
     <!-- export -->
-    <%= link_to 'Export CSV', admin_products_path(format: :csv),  data: {turbo_frame: "_top"}, class: "block rounded-md bg-gray-300 px-3 py-2 text-center text-sm font-semibold text-dark shadow-sm hover:bg-white hover:border hover:border-2 hover:border-dark" %>
+    <%= link_to 'Export CSV', admin_products_path(format: :csv),  data: {turbo_frame: "_top"}, class: "block rounded-md bg-gray-300 px-3 py-2 text-center text-sm font-semibold text-dark shadow-sm bg-white border-2 border-purple-700" %>
   </div>
   <!-- table section -->
   <% unless @products.blank? %>
