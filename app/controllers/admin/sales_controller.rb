@@ -1,6 +1,8 @@
 class Admin::SalesController < ApplicationController
+
   def new
     @sale = Sale.new
+
     @products = Product.all.map { |p| [p.name, p.id, { data: { price: p.price } }] }
   end
 
@@ -10,7 +12,6 @@ class Admin::SalesController < ApplicationController
     if @sale.save
       redirect_to admin_sales_path
     else
-      @products = Product.all
       render :new, status: :unprocessable_entity
     end
   end

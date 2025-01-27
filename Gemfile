@@ -67,3 +67,7 @@ end
 gem "tailwindcss-ruby", "~> 4.0"
 
 gem "tailwindcss-rails", "~> 3.3"
+
+gem 'all_futures', '~> 1.0', '>= 1.0.3'
+
+gem 'csv', '~> 3.0'

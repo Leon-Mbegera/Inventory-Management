@@ -12,10 +12,20 @@
       <% end %>
     </div>
   </div>
+  <div class='flex flex-1 justify-between mt-4 mb-2'>
+    <!-- filter -->
+    <%
+=begin%>
+ <%= render partial: 'filter' %>
+<%
+=end%>
+    <!-- export -->
+    <%= link_to 'Export CSV', admin_products_path(format: :csv),  data: {turbo_frame: "_top"}, class: "block rounded-md bg-gray-300 px-3 py-2 text-center text-sm font-semibold text-dark shadow-sm hover:bg-white hover:border hover:border-2 hover:border-dark" %>
+  </div>
   <!-- table section -->
   <% unless @products.blank? %>
     <%= turbo_frame_tag "products-table" do %>
-      <div class='my-8 w-full'>
+      <div class='mb-8 w-full'>
         <div class='flex flex-col space-y-2 md:space-y-4'>
           <div class='w-full overflow-hidden'>
             <div class='w-full overflow-x-auto scrollbar-hide border border-gray-400 rounded-lg'>

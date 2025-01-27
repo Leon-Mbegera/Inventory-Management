@@ -13,4 +13,8 @@
 class Product < ApplicationRecord
   has_one_attached :image
   has_many :sales, dependent: :destroy
+
+  scope :search_with, lambda { |q|
+    where('name ILIKE ?', "%#{q}%")
+  }
 end
