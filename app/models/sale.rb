@@ -21,16 +21,16 @@ class Sale < ApplicationRecord
   belongs_to :product
 
   validates :quantity, presence: true, numericality: { only_integer: true, greater_than: 0 }
-  validates :total_price, presence: true, numericality: { greater_than_or_equal_to: 0 }
+  validate :quantity_greater_than_product_quantity_in_stock
 
-  before_validation :calculate_total_price
+  after_create :reduce_product_quantity, :calculate_total_price
 
   def date
     created_at.strftime("%a %d-%m-%Y")
   end
 
   def product_name
-    Product.find(product_id).name
+    product.name
   end
 
   private
@@ -39,5 +39,17 @@ class Sale < ApplicationRecord
     return unless product && quantity
 
     self.total_price = product.price.to_f * quantity
+    self.save
+  end
+
+  def reduce_product_quantity
+    product.quantity -= self.quantity
+    product.save
+  end
+
+  def quantity_greater_than_product_quantity_in_stock
+    if self.quantity > product.quantity
+      errors.add(:quantity, "Sale quantity: #{self.quantity} exceeds product quantity in stock: #{product.quantity} !")
+    end
   end
 end
