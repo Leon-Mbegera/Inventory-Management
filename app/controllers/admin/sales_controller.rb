@@ -1,6 +1,8 @@
 class Admin::SalesController < ApplicationController
+
   def new
     @sale = Sale.new
+
     @products = Product.all.map { |p| [p.name, p.id, { data: { price: p.price } }] }
   end
 
