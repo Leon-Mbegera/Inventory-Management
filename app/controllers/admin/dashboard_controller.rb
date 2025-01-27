@@ -1,6 +1,8 @@
 module Admin
   class DashboardController < ApplicationController
-
-    def index; end
+    def index
+      @products = Product.all
+      @sales = Sale.all
+    end
   end
 end

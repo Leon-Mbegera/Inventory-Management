@@ -12,7 +12,9 @@
   <div class='grid grid-cols-12 gap-x-4'>
     <div class='col-span-3'>
       <div class='w-[200px] h-[200px]'>
-        <%= image_tag @product.image, class: "w-full h-full" %>
+        <% if @product.image.attached? %>
+          <%= image_tag @product.image, class: "w-full h-full" %>
+        <% end %>
       </div>
     </div>
     <div class='col-span-3 space-y-6'>

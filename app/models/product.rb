@@ -16,6 +16,7 @@ class Product < ApplicationRecord
   has_many :sales, dependent: :destroy
 
   validates :low_stock_level, numericality: { greater_than_or_equal_to: 0 }
+  validates :name, :quantity, :price, :description, presence: true
 
   scope :search_with, lambda { |q|
     where('name ILIKE ?', "%#{q}%")
