@@ -12,3 +12,6 @@ import { application } from "./application"
 
 import SlideOverController from "./slide_over_controller"
 application.register("slide-over", SlideOverController)
+
+import AlertController from "./alert_controller"
+application.register("flash", AlertController)
