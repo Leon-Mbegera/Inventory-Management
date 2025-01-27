@@ -5,4 +5,9 @@ module ApplicationHelper
 
     render partial: 'shared/slide_over', locals: { title:, subtitle:, content: }
   end
+
+  def error_messages(errors = nil)
+    render "shared/errors",
+     errors: [] << errors
+  end
 end
