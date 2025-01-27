@@ -2,8 +2,6 @@ class Admin::SalesController < ApplicationController
 
   def new
     @sale = Sale.new
-
-    @products = Product.all.map { |p| [p.name, p.id, { data: { price: p.price } }] }
   end
 
   def create
@@ -11,12 +9,9 @@ class Admin::SalesController < ApplicationController
     respond_to do |format|
       if @sale.save
 
-        # if sale.product.quantity <= @sale.product.stock_level
-          # Notification.create!(
-          #   action: "#{@sale.product.name} is Out Of Stock !",
-          #   product: @sale.product
-          # )
-        # end
+        if @sale.product.quantity <= @sale.product.low_stock_level
+          LowStockMailer.low_stock_notification(@sale).deliver_now
+        end
 
         format.html { redirect_to  admin_sales_path, notice: "Sale made successfully !" }
       else
