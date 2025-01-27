@@ -15,6 +15,8 @@ class Product < ApplicationRecord
   has_one_attached :image
   has_many :sales, dependent: :destroy
 
+  validates :low_stock_level, numericality: { greater_than_or_equal_to: 0 }
+
   scope :search_with, lambda { |q|
     where('name ILIKE ?', "%#{q}%")
   }
