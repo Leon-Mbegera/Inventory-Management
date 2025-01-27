@@ -23,6 +23,12 @@
       </div>
       <div class="w-full px-3">
         <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-password">
+          Low Stock Level
+        </label>
+        <%= form.text_field :low_stock_level, class: "appearance-none block w-full bg-gray-200 text-gray-700 rounded py-3 px-4 mb-2 leading-tight focus:border-purple-600 focus:bg-white", required: true, placeholder:"Restock level" %>
+      </div>
+      <div class="w-full px-3">
+        <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-password">
           Description
         </label>
         <%= form.text_area :description, class: "appearance-none block w-full bg-gray-200 text-gray-700 rounded py-3 px-4 mb-2 leading-tight focus:border-purple-600 focus:bg-white", required: true, placeholder:"Product description", rows: "6" %>
