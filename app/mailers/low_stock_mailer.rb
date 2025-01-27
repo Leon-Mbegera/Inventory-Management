@@ -1,0 +1,2 @@
+class LowStockMailer < ApplicationMailer
+end
