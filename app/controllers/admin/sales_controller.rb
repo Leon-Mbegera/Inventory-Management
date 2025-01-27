@@ -8,7 +8,6 @@ class Admin::SalesController < ApplicationController
 
   def create
     @sale = Sale.new(sale_params)
-
     respond_to do |format|
       if @sale.save
 
@@ -35,7 +34,6 @@ class Admin::SalesController < ApplicationController
           ]
         end
       end
-    end
   end
 
   def index
