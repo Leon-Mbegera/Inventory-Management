@@ -39,17 +39,17 @@ class Sale < ApplicationRecord
   def calculate_total_price
     return unless product && quantity
 
-    self.total_price = product.price.to_f * quantity
+    total_price = product.price.to_f * quantity
   end
 
   def reduce_product_quantity
-    product.quantity -= self.quantity
+    product.quantity -= quantity
     product.save
   end
 
   def quantity_greater_than_product_quantity_in_stock
-    if self.quantity > product.quantity
-      errors.add(:quantity, "Sale quantity: #{self.quantity} exceeds product quantity in stock: #{product.quantity} !")
+    if quantity > product.quantity
+      errors.add(:quantity, "Sale quantity: #{quantity} exceeds product quantity in stock: #{product.quantity} !")
     end
   end
 end
