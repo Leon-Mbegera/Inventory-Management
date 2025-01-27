@@ -1,24 +1,30 @@
-# README
+# Name
+Giga Inventory Management
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Description
+This is a simple inventory management system for an ordinary retail store. Administrators can define products, and proceed to make sales for those products. The system keeps track of stocks for each product, and ensures sales made account for the quantities of stock on the retail. Users also get notified in the event of attempting a sale whose quantity is insufficient, or in the event these quantities drop below the allowed low stock level particular for each product.
+- A notification banner appears on the product management page, incase the product quantity is below low stock level.
+- An outgoing email simulation occurs on the browser after a sale record that reduces a product's quantity below low stock level.
 
-Things you may want to cover:
+## Setup
+The app is just a simple rails application therefore it does not require any extra setup. The general setup steps are:
+ - clone the application
 
-* Ruby version
+ - Run `bundle install` to install any missing gems
+ - Run `rails db:migrate` to migrate the database
+ - Run `rails assets:precompile` to compile js assets
+ - Run `bin/dev` to start server
 
-* System dependencies
+## Architecture
+The app consists of just two models, i.e: product, and sale
 
-* Configuration
 
-* Database creation
+## Testing:
+A test suite is included to ensure that the solution works as expected
 
-* Database initialization
+Run Unit & Integration tests with
 
-* How to run the test suite
+- Run `rails test` to run tests
 
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+## Contributions and License:
+  Contributions to this open-source project are welcome. Feel free to open issues or submit pull requests.
