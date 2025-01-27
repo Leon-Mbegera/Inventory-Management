@@ -3,6 +3,8 @@ Giga Inventory Management
 
 ## Description
 This is a simple inventory management system for an ordinary retail store. Administrators can define products, and proceed to make sales for those products. The system keeps track of stocks for each product, and ensures sales made account for the quantities of stock on the retail. Users also get notified in the event of attempting a sale whose quantity is insufficient, or in the event these quantities drop below the allowed low stock level particular for each product.
+- A notification banner appears on the product management page, incase the product quantity is below low stock level.
+- An outgoing email simulation occurs on the browser after a sale record that reduces a product's quantity below low stock level.
 
 ## Setup
 The app is just a simple rails application therefore it does not require any extra setup. The general setup steps are:
